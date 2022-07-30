@@ -7,12 +7,38 @@
       </button>
       <div v-for="item in navBarIcon" :key="item.icon">
         <button class="flex items-center py-2 px-4 hover:text-blue-300 rounded-full mr-auto  ">
-          <font-awesome-icon :icon="item.icon" class="text-xl "/> <span class="text-lg pl-6">{{ item.name }}</span>
+          <font-awesome-icon :icon="item.icon" class="text-xl "/> <span class="text-lg pl-6 font-semibold">{{ item.name }}</span>
         </button>
       </div>
       <div class="tweet pt-6">
-        <button class="w-5/6 ml-4 rounded-2xl bg-blue-400 text-lg py-1 shadow-lg shadow-slate-500">Tweet</button>
+        <button class="w-5/6 ml-4 rounded-2xl bg-blue-400 text-lg py-1 shadow-lg shadow-slate-500 text-white">Tweet</button>
       </div>
+    </div>
+
+    <!--main content--> 
+    <div class="home border-r w-3/5">
+      <div class=" flex justify-between pt-3 border-b-2 p-2">
+        <span class="text-2xl font-bold">Home</span> <font-awesome-icon icon="fas fa-star" class="text-blue-300 mt-2 text-xl" />
+      </div>
+      <div class="new-post flex border-b pb-3">
+        <div class="profil pt-4">
+          <img src="./assets/avatar_prolfil.png" alt="profil" class="w-12  border rounded-full border-black ml-2">
+        </div>
+        <div class="infos pt-6 pl-6 w-full">
+          <p class="text-xl text-gray-400">What's happening ?</p>
+          <div class="foot flex justify-between pt-4 w-full ">
+            <div class="emoji flex w-20 justify-between">
+              <font-awesome-icon icon="fas fa-image" class="text-blue-300 cursor-pointer text-xl" />
+              <font-awesome-icon icon="fa-solid fa-film" class="text-blue-300 text-xl" />
+              <font-awesome-icon icon="fa-solid fa-square-pool-horizontal" class="text-blue-300 text-xl" />
+              <font-awesome-icon icon="fa-solid fa-face-grin" class="text-blue-300 text-xl" />
+            </div>
+            <button class="px-2 ml-4 rounded-2xl bg-blue-400 text-xl h-1/2 mr-5 w-24 text-white ">Tweet</button>
+          </div>
+        </div>
+       
+      </div>
+      
     </div>
   </div>
 </template>
