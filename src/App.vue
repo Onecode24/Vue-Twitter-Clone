@@ -1,7 +1,7 @@
 <template>
-  <div id="app" class="flex container h-screen w-full">
+  <div id="app" class="flex container w-full h-full">
     <!--nav bar-->
-    <div class="w-1/5 border-r border-blue-200 px-8 pt-2">
+    <div class="w-1/5 border-r border-blue-200 px-8 pt-2 max-h-full">
       <button class="h-12 w-12 text-blue-300 text-3xl rounded-full text-blue">
         <font-awesome-icon icon="fab fa-twitter" />
       </button>
@@ -22,28 +22,34 @@
       </div>
       <div class="new-post flex border-b pb-3">
         <div class="profil pt-4">
-          <img src="./assets/avatar_prolfil.png" alt="profil" class="w-12  border rounded-full border-black ml-2">
+          <img src="./assets/avatar_prolfil.png" alt="profil" class="w-12  border rounded-full border-gray-400 ml-2">
         </div>
         <div class="infos pt-6 pl-6 w-full">
-          <p class="text-xl text-gray-400">What's happening ?</p>
+          <p class="text-lg text-gray-400">What's happening ?</p>
           <div class="foot flex justify-between pt-4 w-full ">
-            <div class="emoji flex w-20 justify-between">
+            <div class="emoji flex w-24 justify-between">
               <font-awesome-icon icon="fas fa-image" class="text-blue-300 cursor-pointer text-xl" />
-              <font-awesome-icon icon="fa-solid fa-film" class="text-blue-300 text-xl" />
-              <font-awesome-icon icon="fa-solid fa-square-pool-horizontal" class="text-blue-300 text-xl" />
-              <font-awesome-icon icon="fa-solid fa-face-grin" class="text-blue-300 text-xl" />
+              <font-awesome-icon icon="fa-solid fa-film" class="text-blue-300 text-xl cursor-pointer" />
+              <font-awesome-icon icon="fa-solid fa-chart-bar" class="text-blue-300 text-xl cursor-pointer" />
+              <font-awesome-icon icon="fa-solid fa-face-grin" class="text-blue-300 text-xl cursor-pointer" />
             </div>
             <button class="px-2 ml-4 rounded-2xl bg-blue-400 text-xl h-1/2 mr-5 w-24 text-white ">Tweet</button>
           </div>
         </div>
        
+      </div><div class="w-full">
+      <template v-for="item in userInfos" :key="item.username" >
+        
+          <NewTweet :user="item" :tweet="item.tweet" class="w-full"/>
+        
+      </template>
       </div>
-      
     </div>
   </div>
 </template>
 
 <script>
+import NewTweet from './components/New-tweet.vue'
 
 export default {
   name: 'App',
@@ -58,13 +64,52 @@ export default {
         {icon : 'fa-solid fa-list', name: 'List'},
         {icon : 'fa-solid fa-user', name: 'Profile'},
         {icon : 'fa-solid fa-ellipsis', name: 'more'},
-
+      ],
+      userInfos:[
+        {name: 'John Doe', username: '@johndoe', time: '2h',
+          tweet : {
+            text: 'Pourquoi ne pas utiliser Vue.js ? ',
+            image: 'https://unsplash.com/photos/v9bnfMCyKbg',
+            video: '../assets/avatar_prolfil.png',
+            emoji: 'fa-solid fa-image',
+            comment: 0,
+            like: 1,
+            retweet: 2,
+            share: 0,
+          }
+        },
+        {name: 'Albert Einstein', username: '@albert', time: '1h',
+          tweet : {
+            text: 'la vie est un mystère qu\'il faut vivre, et non pas la chercher à la découvrir.',
+            image: '../assets/avatar_prolfil.png',
+            video: '../assets/avatar_prolfil.png',
+            emoji: 'fa-solid fa-image',
+            comment: 20,
+            like: 1025,
+            retweet: 501,
+            share: 10,
+          }
+        },
+        {name: 'Salomon', username: '@salomon', time: '1m',
+          tweet : {
+            text: 'Pourquoi les gens ne veulent pas mourir ? Parce que c\'est leur seule chance.',
+            image: '../assets/avatar_prolfil.png',
+            video: '../assets/avatar_prolfil.png',
+            emoji: 'fa-solid fa-image',
+            comment: 2,
+            like: 10,
+            retweet: 5,
+            share: 1,
+          }
+        },
       ]  
     }
   },
   components: {
+    NewTweet
+}
 
-  }
+
 }
 </script>
 

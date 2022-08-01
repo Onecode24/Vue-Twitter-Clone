@@ -8,7 +8,7 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 /* import specific icons */
-import { faBell, faBookmark, faEllipsis, faEnvelope, faFaceGrin, faFilm, faHashtag, faHouse, faImage, faList,  faPollH,  faSquarePollHorizontal,  faStar,  faUser, faUserSecret, } from '@fortawesome/free-solid-svg-icons'
+import { faArrowUpFromBracket, faBell, faBookmark, faChartBar, faComment, faEllipsis, faEllipsisV, faEnvelope, faFaceGrin, faFilm, faHashtag, faHeart, faHouse, faImage, faList,  faPollH,  faRetweet,  faSquarePollHorizontal,  faStar,  faUser, faUserSecret, } from '@fortawesome/free-solid-svg-icons'
 import { faTwitter } from '@fortawesome/free-brands-svg-icons'
 
 /* add icons to the library */
@@ -28,6 +28,12 @@ library.add(faPollH)
 library.add(faFaceGrin)
 library.add(faFilm)
 library.add(faSquarePollHorizontal)
+library.add(faRetweet)
+library.add(faComment)
+library.add(faHeart)
+library.add(faArrowUpFromBracket)
+library.add(faEllipsisV)
+library.add(faChartBar)
 
 createApp(App)
 .component('font-awesome-icon', FontAwesomeIcon)
