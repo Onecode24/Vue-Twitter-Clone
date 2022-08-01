@@ -6,7 +6,7 @@
         <font-awesome-icon icon="fab fa-twitter" />
       </button>
       <div v-for="item in navBarIcon" :key="item.icon">
-        <button class="flex items-center py-2 px-4 hover:text-blue-300 rounded-full mr-auto  ">
+        <button @click="id= item.name" :class="`flex items-center py-2 px-4 hover:text-blue-300 rounded-full mr-auto ${id===item.name ? 'text-blue-400' : '' } `">
           <font-awesome-icon :icon="item.icon" class="text-xl "/> <span class="text-lg pl-6 font-semibold">{{ item.name }}</span>
         </button>
       </div>
@@ -30,20 +30,19 @@
             <div class="emoji flex w-24 justify-between">
               <font-awesome-icon icon="fas fa-image" class="text-blue-300 cursor-pointer text-xl" />
               <font-awesome-icon icon="fa-solid fa-film" class="text-blue-300 text-xl cursor-pointer" />
-              <font-awesome-icon icon="fa-solid fa-chart-bar" class="text-blue-300 text-xl cursor-pointer" />
+              <font-awesome-icon icon="fa-solid fa-chart-bar" class="text-blue-300 text-xl cursor-pointer " />
               <font-awesome-icon icon="fa-solid fa-face-grin" class="text-blue-300 text-xl cursor-pointer" />
             </div>
             <button class="px-2 ml-4 rounded-2xl bg-blue-400 text-xl h-1/2 mr-5 w-24 text-white ">Tweet</button>
           </div>
         </div>
        
-      </div><div class="w-full">
+      </div>
       <template v-for="item in userInfos" :key="item.username" >
         
           <NewTweet :user="item" :tweet="item.tweet" class="w-full"/>
         
       </template>
-      </div>
     </div>
   </div>
 </template>
@@ -102,7 +101,8 @@ export default {
             share: 1,
           }
         },
-      ]  
+      ],
+      id: 'Home',  
     }
   },
   components: {
